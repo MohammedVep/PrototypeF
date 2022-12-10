@@ -14,6 +14,7 @@ import com.georgebrown.prototype1.databinding.ListItemBinding;
 
 import java.util.List;
 
+
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
 
     private List<Restaurant> mValues;
