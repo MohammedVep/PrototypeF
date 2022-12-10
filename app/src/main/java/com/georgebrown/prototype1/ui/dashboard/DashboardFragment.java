@@ -26,7 +26,7 @@ public class DashboardFragment extends Fragment {
 
 
 
-        final TextView textView = binding.textDashboard;
+        TextView textView = binding.textDashboard;
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

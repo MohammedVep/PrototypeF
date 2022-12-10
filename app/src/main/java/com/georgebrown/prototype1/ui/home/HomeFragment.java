@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment implements RestaurantAdapter.ItemClic
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
+        TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         RecyclerView recyclerView = binding.homeRestaurantList;

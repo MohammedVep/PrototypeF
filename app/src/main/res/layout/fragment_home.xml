@@ -7,24 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Restaurant Guide"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/homeRestaurantList"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084" />
-
-<!--    <androidx.fragment.app.FragmentContainerView-->
+    <!--    <androidx.fragment.app.FragmentContainerView-->
 <!--        android:id="@+id/fragmentContainerView"-->
 <!--        android:name="com.georgebrown.prototype1.RestaurantList"-->
 <!--        android:layout_width="match_parent"-->
@@ -34,19 +17,30 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/text_home"-->
 <!--        tools:layout="@layout/fragment_restaurant_list"-->
 <!--        tools:layout_editor_absoluteX="78dp" />-->
+
+    <TextView
+        android:id="@+id/textHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_guide_to_restaurants"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/homeRestaurantList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeRestaurantList"
         android:name="com.georgebrown.prototype1.RestaurantList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context=".RestaurantList"
-        tools:listitem="@layout/list_item"
         app:layout_constraintBottom_toTopOf="@+id/homeAdd"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
-        >
+        tools:context=".RestaurantList"
+        tools:layout_editor_absoluteX="16dp"
+        tools:listitem="@layout/list_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -54,7 +48,7 @@
         android:id="@+id/homeAdd"
         android:layout_width="118dp"
         android:layout_height="37dp"
-        android:text="Add"
+        android:text="@string/add"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
