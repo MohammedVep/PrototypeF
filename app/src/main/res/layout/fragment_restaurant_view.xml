@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RestaurantViewFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/viewRestaurantName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Something" />
+
+    <TextView
+        android:id="@+id/viewRestaurantAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Something" />
+    <TextView
+        android:id="@+id/viewRestaurantCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Something" />
+    <TextView
+        android:id="@+id/viewRestaurantState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Something" />
+    <TextView
+        android:id="@+id/viewRestaurantZip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Something" />
+    <TextView
+        android:id="@+id/viewRestaurantTasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Something" />
+    <TextView
+        android:id="@+id/viewRestaurantTags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Something" />
+    <TextView
+        android:id="@+id/viewRestaurantPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Something" />
+    <TextView
+        android:id="@+id/viewRestaurantEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Something" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:id="@+id/vewRestaurantMap"
+        android:layout_width="343dp"
+        android:layout_height="380dp" />
+    <Button
+
+        android:id="@+id/restaurantViewDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Delete" />
+
+
+</LinearLayout>
