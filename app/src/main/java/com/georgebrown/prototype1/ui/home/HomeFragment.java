@@ -2,6 +2,8 @@ package com.georgebrown.prototype1.ui.home;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,11 +33,13 @@ import com.georgebrown.prototype1.placeholder.RestaurantContent;
 import com.georgebrown.prototype1.ui.addRestaurants.addRestaurants;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class HomeFragment extends Fragment implements RestaurantAdapter.ItemClickListener{
 
 
     private FragmentHomeBinding binding;
+    RestaurantAdapter restaurantAdapter = new RestaurantAdapter(RestaurantContent.ITEMS,this);
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,13 +49,30 @@ public class HomeFragment extends Fragment implements RestaurantAdapter.ItemClic
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        EditText search = binding.homeSearch;
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(String.valueOf(editable));
+            }
+        });
+
+
 
         RecyclerView recyclerView = binding.homeRestaurantList;
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new RestaurantAdapter(RestaurantContent.ITEMS,this));
+        recyclerView.setAdapter(restaurantAdapter);
 
 
 
@@ -79,6 +101,16 @@ public class HomeFragment extends Fragment implements RestaurantAdapter.ItemClic
 
 
         return root;
+
+    }
+    private void filter(String text){
+        ArrayList<Restaurant> filteredList = new ArrayList<>();
+        for(Restaurant item: RestaurantContent.ITEMS){
+            if (item.getName().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        restaurantAdapter.filterList(filteredList);
 
     }
 

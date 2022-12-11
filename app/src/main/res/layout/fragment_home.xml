@@ -6,30 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
-
-    <!--    <androidx.fragment.app.FragmentContainerView-->
-<!--        android:id="@+id/fragmentContainerView"-->
-<!--        android:name="com.georgebrown.prototype1.RestaurantList"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-
-<!--        app:layout_constraintBottom_toTopOf="@+id/homeAdd"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/text_home"-->
-<!--        tools:layout="@layout/fragment_restaurant_list"-->
-<!--        tools:layout_editor_absoluteX="78dp" />-->
-
-    <TextView
-        android:id="@+id/textHome"
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/your_guide_to_restaurants"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/homeRestaurantList"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:hint="Search"
+
+        android:id="@+id/homeSearch"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeRestaurantList"
@@ -38,6 +21,7 @@
         android:layout_height="0dp"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/homeAdd"
+        app:layout_constraintTop_toBottomOf="@+id/homeSearch"
         tools:context=".RestaurantList"
         tools:layout_editor_absoluteX="16dp"
         tools:listitem="@layout/list_item">
@@ -46,8 +30,8 @@
 
     <Button
         android:id="@+id/homeAdd"
-        android:layout_width="118dp"
-        android:layout_height="37dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/add"
 
         app:layout_constraintBottom_toBottomOf="parent"

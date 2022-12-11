@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.georgebrown.prototype1.Model.Restaurant;
 import com.georgebrown.prototype1.databinding.ListItemBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -75,6 +76,11 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     }
     public interface ItemClickListener{
         public void onItemClick(int possition);
+    }
+
+    public void filterList(ArrayList<Restaurant> filterList){
+        mValues = filterList;
+        notifyDataSetChanged();
     }
 }
 
