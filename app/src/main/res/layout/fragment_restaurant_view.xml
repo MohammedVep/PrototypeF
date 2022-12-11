@@ -60,6 +60,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Share" />
+    <Button
+        android:id="@+id/buildNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="set the route" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -68,8 +73,8 @@
 
     <FrameLayout
         android:id="@+id/vewRestaurantMap"
-        android:layout_width="343dp"
-        android:layout_height="380dp" />
+        android:layout_width="match_parent"
+        android:layout_height="250sp" />
     <Button
 
         android:id="@+id/restaurantViewDelete"

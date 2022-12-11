@@ -111,6 +111,15 @@ public class RestaurantViewFragment extends Fragment {
                 getFragmentManager().popBackStack();
             });
 
+            Button navigation = v.findViewById(R.id.buildNavigation);
+            navigation.setOnClickListener(view ->{
+                Uri gmmIntentUri = Uri.parse("google.navigation:q="+restaurant.getAddress()+",+"+restaurant.getCity());
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+
+            });
+
             Button shareBtn = v.findViewById(R.id.shareBtn);
             shareBtn.setOnClickListener(view -> {
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
