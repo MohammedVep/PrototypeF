@@ -1,9 +1,12 @@
 package com.georgebrown.prototype1;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +19,9 @@ import com.georgebrown.prototype1.Model.Restaurant;
 
 
 import java.io.Console;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,6 +66,14 @@ public class RestaurantViewFragment extends Fragment {
         }
     }
 
+    private static String encodeValue(String value) {
+        try {
+            return URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
+        } catch (UnsupportedEncodingException ex) {
+            throw new RuntimeException(ex.getCause());
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -95,6 +109,17 @@ public class RestaurantViewFragment extends Fragment {
             delete.setOnClickListener(view -> {
                 RestaurantContent.ITEMS.remove(Integer.valueOf(restaurant_id)+0);
                 getFragmentManager().popBackStack();
+            });
+
+            Button shareBtn = v.findViewById(R.id.shareBtn);
+            shareBtn.setOnClickListener(view -> {
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "PrototypeF");
+                String shareMessage= "\nCheck this restaurant out\n\n";
+                shareMessage = shareMessage + "http://maps.google.ca/maps?q=" + encodeValue(fullAddress);
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
             });
 
         }

@@ -55,6 +55,12 @@
         android:layout_height="wrap_content"
         android:text="Something" />
 
+    <Button
+        android:id="@+id/shareBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share" />
+
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
